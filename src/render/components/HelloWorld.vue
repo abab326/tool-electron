@@ -22,8 +22,7 @@
 </script>
 
 <template>
-  <img v-if="selectImage" :src="selectImage.url" />
-  <button @click="login">登录</button>
+  <div class="w-20 h-20 bg-red-500"></div>
+  <el-image v-if="selectImage" :src="selectImage.url" />
+  <el-button @click="login">登录</el-button>
 </template>
-
-<style scoped></style>
