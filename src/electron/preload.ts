@@ -1,6 +1,4 @@
-import { contextBridge, ipcRenderer } from 'electron'
-import { exposeRender } from './bridges'
+import { contextBridge } from 'electron'
+import { exposeBridge } from './bridges/pre-bridge'
 
-contextBridge.exposeInMainWorld('electronBridge', {
-  ...exposeRender(ipcRenderer)
-})
+contextBridge.exposeInMainWorld('electronBridge', exposeBridge)

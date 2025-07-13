@@ -30,19 +30,5 @@ const register = (ipcMain: Electron.IpcMain) => {
   ipcMain.handle('login', login)
   ipcMain.handle('logout', logout)
 }
-const expose = (ipcRenderer: Electron.IpcRenderer) => {
-  return {
-    login: (credentials: LoginParams) => ipcRenderer.invoke('login', credentials),
-    logout: () => ipcRenderer.invoke('logout')
-  }
-}
 
-export type AuthExpose = {
-  login: (credentials: LoginParams) => Promise<LoginResult>
-  logout: () => Promise<void>
-}
-
-export default {
-  register,
-  expose
-}
+export default register
