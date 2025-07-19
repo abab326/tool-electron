@@ -53,11 +53,11 @@ const __vite_glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
 }, Symbol.toStringTag, { value: "Module" }));
 const ipcModules = {};
 const modules = /* @__PURE__ */ Object.assign({ "./modules/auth.ts": __vite_glob_0_0, "./modules/file.ts": __vite_glob_0_1 });
+console.log("modules :", modules);
 for (const path2 in modules) {
   const module = modules[path2];
-  const name = path2.replace(/\.\/modules\/(.*)\.ts/, "");
-  console.log("register module:", name);
-  ipcModules[name] = module.default;
+  console.log("register module:", path2);
+  ipcModules[path2] = module.default;
 }
 const registerIpcHandlers = (ipcMain2) => {
   console.log("registerIpcHandlers", ipcModules);

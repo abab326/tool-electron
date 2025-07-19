@@ -34,9 +34,4 @@ const register = (ipcMain: Electron.IpcMain) => {
   ipcMain.handle('selectImage', selectImage)
 }
 
-export type FileExpose = {
-  selectDirectory: () => Promise<string>
-  selectImage: () => Promise<ImageResult>
-}
-
 export default register
