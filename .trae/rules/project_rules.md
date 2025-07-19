@@ -3,3 +3,4 @@
 3、渲染层UI 基于element-plus
 4、项目中使用electron-builder 打包项目
 5、自定义页面样式采用 unocss 
+6、始终使用中文回答
