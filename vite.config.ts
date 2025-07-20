@@ -10,7 +10,7 @@ export default defineConfig({
     vue(),
     UnoCSS(),
     electron({
-      entry: 'src/electron/main.js'
+      entry: 'src/electron/main.ts'
     })
   ],
   resolve: {
