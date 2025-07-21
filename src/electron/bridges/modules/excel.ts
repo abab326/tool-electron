@@ -19,17 +19,13 @@ async function parseExcelFile(event: Electron.Event, filePath: string): Promise<
       const data = fs.readFileSync(filePath)
       const workbook = XLSX.read(data, { type: 'array' })
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]]
-      // 打印第4行所有列的数
-      const range = XLSX.utils.decode_range(firstSheet['!ref']!)
-      for (let col = range.s.c; col <= range.e.c; col++) {
-        const cell = firstSheet[XLSX.utils.encode_cell({ r: 3, c: col })]
-        console.log('第4行第', col, '列的值:', cell?.v)
-      }
+
       const jsonData = XLSX.utils.sheet_to_json(firstSheet, {
         header: 2,
         range: 2,
         defval: ''
       })
+      console.log('jsonData:', jsonData)
       resolve(jsonData)
     } catch (error) {
       console.error('解析Excel文件出错:', error)

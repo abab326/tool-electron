@@ -26068,16 +26068,12 @@ async function parseExcelFile(event, filePath) {
       const data = fs.readFileSync(filePath);
       const workbook = readSync(data, { type: "array" });
       const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const range = utils.decode_range(firstSheet["!ref"]);
-      for (let col = range.s.c; col <= range.e.c; col++) {
-        const cell = firstSheet[utils.encode_cell({ r: 3, c: col })];
-        console.log("第4行第", col, "列的值:", cell == null ? void 0 : cell.v);
-      }
       const jsonData = utils.sheet_to_json(firstSheet, {
         header: 2,
         range: 2,
         defval: ""
       });
+      console.log("jsonData:", jsonData);
       resolve(jsonData);
     } catch (error) {
       console.error("解析Excel文件出错:", error);
