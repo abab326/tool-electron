@@ -1,9 +1,11 @@
 import { createApp } from 'vue'
-import 'uno.css'
+
 import '@unocss/reset/tailwind.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import './style.css'
+import './styles/global.scss'
+import 'uno.css'
+
 import App from './App.vue'
 import router from './routes'
 import store from './stores'
